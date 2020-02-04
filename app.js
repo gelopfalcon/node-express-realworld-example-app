@@ -31,9 +31,9 @@ if (!isProduction) {
 }
 
 if(isProduction){
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect('mongodb://gelopfalcon:boanerges01@ds137611.mlab.com:37611/pizzadbfalcon');
 } else {
-  mongoose.connect('mongodb://localhost/conduit');
+  mongoose.connect('mongodb://test:boanerges01@ds137611.mlab.com:37611/pizzadbfalcon');
   mongoose.set('debug', true);
 }
 
