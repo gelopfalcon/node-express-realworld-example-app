@@ -5,7 +5,7 @@ metadata:
   labels:
     app: realworld-node
 spec:
-  type: NodePort 
+  type: LoadBalancer
   ports:
   - port: 3000
     targetPort: 3000
@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: realworld-node
-        image: glgelopfalcon/node-realworld:1
+        image: glgelopfalcon/node-realworld:4
         ports:
         - containerPort: 3000
 ---
