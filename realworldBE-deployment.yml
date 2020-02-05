@@ -5,7 +5,7 @@ metadata:
   labels:
     app: realworld-node
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 3000
     targetPort: 3000
