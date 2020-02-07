@@ -24,6 +24,12 @@ pipeline {
             }
          }
         }
+        stage('Prune Docker Images') {
+            steps {
+                echo 'Step 1: Prune images'
+                sh 'docker image prune -a -f'
+            }
+        }
 
         stage('Deploy to DEV') {
             steps {
