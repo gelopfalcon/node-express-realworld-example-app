@@ -24,18 +24,23 @@ pipeline {
             }
          }
         }
+        
+        stage('Deploy to DEV') {
+            steps {
+                sh 'sed -i -e "s/\\/node-realworld:.*/\\/node-realworld:${BUILD_NUMBER}/" realworldBE-deployment.yml'
+                sh 'sudo kubectl apply -f  realworldBE-deployment.yml'
+            }
+        }
+        stage('Running Integration test') {
+            steps {
+                echo "Step 1: INT test"
+            }
+        }
         stage('Prune Docker Images') {
             steps {
                 echo 'Step 1: Prune images'
                 sh 'docker image prune -a -f'
             }
         }
-
-        stage('Deploy to DEV') {
-            steps {
-                sh 'sed -i -e "s/\\/node-realworld:.*/\\/node-realworld:${BUILD_NUMBER}/" realworldBE-deployment.yml'
-                sh 'sudo kubectl apply -f  realworldBE-deployment.yml'
-            }
-        } 
     }
 }
