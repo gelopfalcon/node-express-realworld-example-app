@@ -31,9 +31,9 @@ if (!isProduction) {
 }
 
 if(isProduction){
-  mongoose.connect('mongodb://gelopfalcon:boanerges01@ds047447.mlab.com:47447/challenge-devops');
+  mongoose.connect('mongodb://gelopfalcon:boanerges01@ds137611.mlab.com:37611/pizzadbfalcon');
 } else {
-  mongoose.connect('mongodb://gelopfalcon:boanerges01@ds047447.mlab.com:47447/challenge-devops');
+  mongoose.connect('mongodb://gelopfalcon:boanerges01@ds137611.mlab.com:37611/pizzadbfalcon');
   mongoose.set('debug', true);
 }
 
